@@ -17,6 +17,8 @@
         "sourceType": "module"
     },
     "rules": {
-        "import/no-extraneous-dependencies": 0
+        "import/no-extraneous-dependencies": 0,
+        "no-underscore-dangle": 0,
+        "jest/no-export": 0
     }
 }
