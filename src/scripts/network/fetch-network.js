@@ -1,15 +1,19 @@
 class FetchNetwork {
-  static async get({ targetUrl, headers }) {
+  static async get({ targetUrl = '', headers = {} } = {}) {
+    if (!targetUrl.trim()) throw new Error('Target url cannot be empty');
+
     const response = await fetch(targetUrl, {
-      headers,
+      ...headers,
     });
     return response.json();
   }
 
-  static async post({ targetUrl, headers }) {
+  static async post({ targetUrl = '', headers = {} } = {}) {
+    if (!targetUrl.trim()) throw new Error('Target url cannot be empty');
+
     const response = await fetch(targetUrl, {
+      ...headers,
       method: 'POST',
-      headers,
     });
     return response.json();
   }
