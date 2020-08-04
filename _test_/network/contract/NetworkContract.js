@@ -1,4 +1,5 @@
 import { GetObjectMock, PostObjectMock } from './mock/network-object-mock';
+import ExceptionMessages from '../../../src/scripts/globals/ExceptionMessages';
 
 const itActsAsNetworkModel = (network) => {
   describe('Get Method', () => {
@@ -19,10 +20,10 @@ const itActsAsNetworkModel = (network) => {
     it('should throw error when target url empty or white space', async () => {
       await expect(network.get())
         .rejects
-        .toThrow('Target url cannot be empty');
+        .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
       await expect(network.get({ targetUrl: '       ' }))
         .rejects
-        .toThrow('Target url cannot be empty');
+        .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
     });
   });
 
@@ -44,11 +45,11 @@ const itActsAsNetworkModel = (network) => {
     it('should throw error when target url empty or white space', async () => {
       await expect(network.post())
         .rejects
-        .toThrow('Target url cannot be empty');
+        .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
 
       await expect(network.post('      '))
         .rejects
-        .toThrow(('Target url cannot be empty'));
+        .toThrow((ExceptionMessages.Network.EMPTY_TARGET_URL_ERR));
     });
   });
 };

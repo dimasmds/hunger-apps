@@ -1,44 +1,45 @@
 import generateImageUrl from '../../src/scripts/utils/image-url-generator';
 import AppConfig from '../../src/scripts/globals/app-config';
+import ExceptionMessages from '../../src/scripts/globals/ExceptionMessages';
 
 describe('Image Url Generator', () => {
   it('should throw error when id is falsy', () => {
     expect(() => {
       generateImageUrl();
     })
-      .toThrowError('Parameter should be an id of restaurant');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
 
     expect(() => {
       generateImageUrl(null);
     })
-      .toThrowError('Parameter should be an id of restaurant');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
 
     expect(() => {
       generateImageUrl(0);
     })
-      .toThrowError('Parameter should be an id of restaurant');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
 
     expect(() => {
       generateImageUrl(false);
     })
-      .toThrowError('Parameter should be an id of restaurant');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
   });
 
   it('should throw error when id is not string', () => {
     expect(() => {
       generateImageUrl(1);
     })
-      .toThrowError('Parameter should be string');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_TYPE_OF_PARAMETER_ID_ERR);
 
     expect(() => {
       generateImageUrl(true);
     })
-      .toThrowError('Parameter should be string');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_TYPE_OF_PARAMETER_ID_ERR);
 
     expect(() => {
       generateImageUrl('01', true);
     })
-      .toThrowError('Parameter should be string');
+      .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_TYPE_OF_PARAMETER_ID_ERR);
   });
 
   it('should return actual image url', () => {
