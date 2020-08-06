@@ -15,4 +15,15 @@ const GetRestaurantObjectMock = {
   description: 'This is some description',
 };
 
-export { GetRestaurantObjectMock, GetRestaurantsObjectMock };
+const PostReviewResponseObjectMock = {
+  error: false,
+  message: 'success',
+  customerReviews: [
+    {
+      name: 'Dimas Maulana',
+      review: 'Makanannya mantap pool!',
+    },
+  ],
+};
+
+export { GetRestaurantObjectMock, GetRestaurantsObjectMock, PostReviewResponseObjectMock };
