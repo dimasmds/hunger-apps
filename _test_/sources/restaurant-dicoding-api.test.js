@@ -88,5 +88,24 @@ describe('Restaurant Dicoding API', () => {
       expect(response)
         .toStrictEqual(PostReviewResponseObjectMock);
     });
+
+    it('should return empty object when request failed', async () => {
+      const mockNetwork = jest.spyOn(FetchNetwork, 'post')
+        .mockImplementation(() => {
+          throw new Error(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
+        });
+
+      const restaurantDicodingApi = new RestaurantDicodingApi(FetchNetwork);
+      const response = await restaurantDicodingApi.postReview({
+        idRestaurant: '3',
+        name: PostReviewResponseObjectMock.customerReviews[0].name,
+        review: PostReviewResponseObjectMock.customerReviews[0].review,
+      });
+
+      expect(mockNetwork)
+        .toBeCalled();
+      expect(response)
+        .toStrictEqual({});
+    });
   });
 });
