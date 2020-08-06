@@ -1,4 +1,4 @@
-import { GetObjectMock, PostObjectMock } from './mock/network-object-mock';
+import { GetObjectFailedMock, GetObjectMock, PostObjectMock } from './mock/network-object-mock';
 import ExceptionMessages from '../../../src/scripts/globals/ExceptionMessages';
 
 const itActsAsNetworkModel = (network) => {
@@ -50,6 +50,14 @@ const itActsAsNetworkModel = (network) => {
       await expect(network.post('      '))
         .rejects
         .toThrow((ExceptionMessages.Network.EMPTY_TARGET_URL_ERR));
+    });
+
+    it('should throw error when bad request', () => {
+      expect(async () => {
+        await network.get({
+          targetUrl: GetObjectFailedMock.targetUrl,
+        });
+      }).toThrow('Bad Request');
     });
   });
 };
