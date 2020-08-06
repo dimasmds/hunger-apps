@@ -27,8 +27,16 @@ const GetObjectFailedMock = {
   expectedResponse: 500,
 };
 
+const PostObjectFailedMock = {
+  targetUrl: 'https://dummy-url.com/postFailed',
+  headers: {},
+  options: {},
+  expectedResponse: 500,
+};
+
 export {
   GetObjectMock,
   PostObjectMock,
   GetObjectFailedMock,
+  PostObjectFailedMock,
 };

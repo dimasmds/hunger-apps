@@ -1,4 +1,9 @@
-import { GetObjectFailedMock, GetObjectMock, PostObjectMock } from './mock/network-object-mock';
+import {
+  GetObjectFailedMock,
+  GetObjectMock,
+  PostObjectFailedMock,
+  PostObjectMock,
+} from './mock/network-object-mock';
 import ExceptionMessages from '../../../src/scripts/globals/ExceptionMessages';
 
 const itActsAsNetworkModel = (network) => {
@@ -58,6 +63,14 @@ const itActsAsNetworkModel = (network) => {
       await expect(network.post('      '))
         .rejects
         .toThrow((ExceptionMessages.Network.EMPTY_TARGET_URL_ERR));
+    });
+
+    it('should throw error when request failed', async () => {
+      await expect(network.post({
+        targetUrl: PostObjectFailedMock.targetUrl,
+      }))
+        .rejects
+        .toThrow('Failed to execute request. Try again.');
     });
   });
 };
