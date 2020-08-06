@@ -36,7 +36,7 @@ const itActsAsNetworkModel = (network) => {
         targetUrl: GetObjectFailedMock.targetUrl,
       }))
         .rejects
-        .toThrow('Failed to get request. Try again.');
+        .toThrow(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
     });
   });
 
@@ -70,7 +70,7 @@ const itActsAsNetworkModel = (network) => {
         targetUrl: PostObjectFailedMock.targetUrl,
       }))
         .rejects
-        .toThrow('Failed to execute request. Try again.');
+        .toThrow(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
     });
   });
 };

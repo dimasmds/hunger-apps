@@ -9,7 +9,7 @@ class FetchNetwork {
     });
 
     if (response.status !== 200) {
-      throw new Error('Failed to get request. Try again.');
+      throw new Error(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
     }
 
     return response.json();
@@ -24,7 +24,7 @@ class FetchNetwork {
     });
 
     if (response.status !== 200) {
-      throw new Error('Failed to execute request. Try again.');
+      throw new Error(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
     }
 
     return response.json();
