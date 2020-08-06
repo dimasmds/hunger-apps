@@ -25,6 +25,14 @@ const itActsAsNetworkModel = (network) => {
         .rejects
         .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
     });
+
+    it('should throw error when failed request', async () => {
+      await expect(network.get({
+        targetUrl: GetObjectFailedMock.targetUrl,
+      }))
+        .rejects
+        .toThrow('Failed to get request. Try again.');
+    });
   });
 
   describe('Post Method', () => {
@@ -50,14 +58,6 @@ const itActsAsNetworkModel = (network) => {
       await expect(network.post('      '))
         .rejects
         .toThrow((ExceptionMessages.Network.EMPTY_TARGET_URL_ERR));
-    });
-
-    it('should throw error when failed request', async () => {
-      await expect(network.get({
-        targetUrl: GetObjectFailedMock.targetUrl,
-      }))
-        .rejects
-        .toThrow('Failed to get request. Try again.');
     });
   });
 };
