@@ -6,13 +6,23 @@ class RestaurantDicodingApi {
   }
 
   async getAllRestaurants() {
-    const response = await this._network.get(Endpoint.getAllRestaurants());
-    return response.restaurants;
+    try {
+      const response = await this._network.get(Endpoint.getAllRestaurants());
+      return response.restaurants;
+    } catch (error) {
+      // TODO: do something with error
+      return [];
+    }
   }
 
   async getRestaurant(id) {
-    const response = await this._network.get(Endpoint.getRestaurant(id));
-    return response.restaurant;
+    try {
+      const response = await this._network.get(Endpoint.getRestaurant(id));
+      return response.restaurant;
+    } catch (error) {
+      // TODO: do something with error
+      return {};
+    }
   }
 }
 
