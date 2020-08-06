@@ -7,6 +7,11 @@ class FetchNetwork {
     const response = await fetch(targetUrl, {
       ...headers,
     });
+
+    if (response.status !== 200) {
+      throw new Error('Failed to get request. Try again.');
+    }
+
     return response.json();
   }
 
