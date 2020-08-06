@@ -22,6 +22,11 @@ class FetchNetwork {
       ...headers,
       method: 'POST',
     });
+
+    if (response.status !== 200) {
+      throw new Error('Failed to execute request. Try again.');
+    }
+
     return response.json();
   }
 }
