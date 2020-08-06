@@ -52,12 +52,12 @@ const itActsAsNetworkModel = (network) => {
         .toThrow((ExceptionMessages.Network.EMPTY_TARGET_URL_ERR));
     });
 
-    it('should throw error when bad request', () => {
-      expect(async () => {
-        await network.get({
-          targetUrl: GetObjectFailedMock.targetUrl,
-        });
-      }).toThrow('Bad Request');
+    it('should throw error when failed request', async () => {
+      await expect(network.get({
+        targetUrl: GetObjectFailedMock.targetUrl,
+      }))
+        .rejects
+        .toThrow('Failed to get request. Try again.');
     });
   });
 };
