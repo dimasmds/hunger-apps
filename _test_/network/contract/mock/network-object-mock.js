@@ -24,7 +24,7 @@ const GetObjectFailedMock = {
   targetUrl: 'https://dummy-url.com/getFailed',
   headers: {},
   options: {},
-  expectedResponse: {},
+  expectedResponse: 500,
 };
 
 export {

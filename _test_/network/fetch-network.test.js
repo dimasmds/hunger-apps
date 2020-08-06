@@ -10,7 +10,7 @@ import {
 describe('Fetch Network', () => {
   fetchMock.get(GetObjectMock.targetUrl, GetObjectMock.expectedResponse);
   fetchMock.post(PostObjectMock.targetUrl, PostObjectMock.expectedResponse);
-  fetchMock.get(GetObjectFailedMock.targetUrl, 500);
+  fetchMock.get(GetObjectFailedMock.targetUrl, GetObjectFailedMock.expectedResponse);
 
   afterAll(() => {
     fetchMock.reset();
