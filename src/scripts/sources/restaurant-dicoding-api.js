@@ -26,13 +26,18 @@ class RestaurantDicodingApi {
   }
 
   postReview({ idRestaurant, name, review }) {
-    return this._network.post(Endpoint.postCustomerReview(), {
-      body: {
-        id: idRestaurant,
-        name,
-        review,
-      },
-    });
+    try {
+      return this._network.post(Endpoint.postCustomerReview(), {
+        body: {
+          id: idRestaurant,
+          name,
+          review,
+        },
+      });
+    } catch (error) {
+      // TODO: do something with error
+      return {};
+    }
   }
 }
 
