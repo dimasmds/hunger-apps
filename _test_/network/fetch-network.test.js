@@ -1,6 +1,6 @@
 import fetchMock from 'fetch-mock';
 import itActsAsNetworkModel from './contract/NetworkContract';
-import FetchNetwork from '../../src/scripts/network/fetch-network';
+import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import {
   GetObjectFailedMock,
   GetObjectMock, PostObjectFailedMock,

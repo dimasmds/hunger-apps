@@ -1,4 +1,4 @@
-import FetchNetwork from '../../src/scripts/network/fetch-network';
+import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import RestaurantDicodingApi from '../../src/scripts/sources/restaurant-dicoding-api';
 import {
   GetRestaurantObjectMock,

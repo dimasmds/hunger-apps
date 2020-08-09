@@ -1,4 +1,4 @@
-import ExceptionMessages from '../globals/ExceptionMessages';
+import ExceptionMessages from '../../globals/ExceptionMessages';
 
 class FetchNetwork {
   static async get({ targetUrl = '', headers = {} } = {}) {
