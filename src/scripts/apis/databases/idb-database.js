@@ -7,8 +7,6 @@ class IdbDatabase {
   }
 
   createNewObjectStore({ objectStoreName = 'default', objectStoreConfig = {} } = {}) {
-    console.log(objectStoreName);
-    console.log(objectStoreConfig);
     return openDB(this._databaseName, this._databaseVersion, {
       upgrade(database) {
         database.createObjectStore(objectStoreName, objectStoreConfig);
