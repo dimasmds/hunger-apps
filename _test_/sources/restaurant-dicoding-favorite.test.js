@@ -18,5 +18,20 @@ describe('Restaurant Dicoding Favorite Source', () => {
       expect(restaurants)
         .toStrictEqual(GetFavoriteRestaurantsObjectMock);
     });
+
+    it('should return empty array if there no favorite restaurant', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'getAll')
+        .mockImplementation(() => null);
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+      const restaurants = await restaurantDicodingFavorite.getAllRestaurants();
+
+      expect(mockDatabase)
+        .toBeCalled();
+
+      expect(restaurants)
+        .toStrictEqual([]);
+    });
   });
 });
