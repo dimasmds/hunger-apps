@@ -15,6 +15,10 @@ class RestaurantDicodingFavorite {
       return [];
     }
   }
+
+  async getRestaurant(id) {
+    return this._database.get(id);
+  }
 }
 
 export default RestaurantDicodingFavorite;
