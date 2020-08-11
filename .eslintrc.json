@@ -19,6 +19,7 @@
     "rules": {
         "import/no-extraneous-dependencies": 0,
         "no-underscore-dangle": 0,
-        "jest/no-export": 0
+        "jest/no-export": 0,
+        "linebreak-style": 0
     }
 }
