@@ -1,4 +1,4 @@
-const GetFavoriteRestaurantsObjectMock = () => [
+const GetFavoriteRestaurantsObjectMock = [
   [
     {
       id: 'sro85cfq72fkdpijs1r',
