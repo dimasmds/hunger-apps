@@ -12,7 +12,7 @@ describe('Restaurant Dicoding Favorite Source', () => {
         }));
 
       const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
-      const restaurants = restaurantDicodingFavorite.getRestaurants();
+      const restaurants = restaurantDicodingFavorite.getAllRestaurants();
 
       expect(mockDatabase)
         .toBeCalled();
