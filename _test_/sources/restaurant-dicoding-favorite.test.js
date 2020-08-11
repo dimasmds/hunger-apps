@@ -33,5 +33,22 @@ describe('Restaurant Dicoding Favorite Source', () => {
       expect(restaurants)
         .toStrictEqual([]);
     });
+
+    it('should return empty array if database failed to process', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'getAll')
+        .mockImplementation(() => {
+          throw new Error('Failed to process data');
+        });
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+      const restaurants = await restaurantDicodingFavorite.getAllRestaurants();
+
+      expect(mockDatabase)
+        .toThrow();
+
+      expect(restaurants)
+        .toStrictEqual([]);
+    });
   });
 });
