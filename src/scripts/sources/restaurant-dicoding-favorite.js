@@ -4,11 +4,16 @@ class RestaurantDicodingFavorite {
   }
 
   async getAllRestaurants() {
-    const restaurants = await this._database.getAll();
-    if (restaurants) {
-      return restaurants;
+    try {
+      const restaurants = await this._database.getAll();
+      if (restaurants) {
+        return restaurants;
+      }
+      return [];
+    } catch (error) {
+      // do something with error
+      return [];
     }
-    return [];
   }
 }
 
