@@ -1,4 +1,7 @@
-import { GetFavoriteRestaurantsObjectMock } from './mock/favorites-object-mock';
+import {
+  GetFavoriteRestaurantObjectMock,
+  GetFavoriteRestaurantsObjectMock,
+} from './mock/favorites-object-mock';
 import IdbDatabase from '../../src/scripts/apis/databases/idb-database';
 import RestaurantDicodingFavorite from '../../src/scripts/sources/restaurant-dicoding-favorite';
 
@@ -49,6 +52,24 @@ describe('Restaurant Dicoding Favorite Source', () => {
 
       expect(restaurants)
         .toStrictEqual([]);
+    });
+  });
+
+  describe('Get A Favorite Restaurant', () => {
+    it('should return a single restaurant correctly', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'get')
+        .mockImplementation(() => GetFavoriteRestaurantObjectMock);
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+      const restaurant = await restaurantDicodingFavorite
+        .getRestaurant(GetFavoriteRestaurantObjectMock.id);
+
+      expect(mockDatabase)
+        .toBeCalled();
+
+      expect(restaurant)
+        .toStrictEqual(GetFavoriteRestaurantObjectMock);
     });
   });
 });

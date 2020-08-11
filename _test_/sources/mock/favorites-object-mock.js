@@ -29,4 +29,12 @@ const GetFavoriteRestaurantsObjectMock = [
   },
 ];
 
-export { GetFavoriteRestaurantsObjectMock };
+const GetFavoriteRestaurantObjectMock = {
+  id: '6tf1q5h30jlkdpijs1r',
+  name: 'Ducky Duck',
+  pictureId: '15',
+  city: 'Balikpapan',
+  rating: 4.2,
+};
+
+export { GetFavoriteRestaurantsObjectMock, GetFavoriteRestaurantObjectMock };
