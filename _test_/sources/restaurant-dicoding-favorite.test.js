@@ -88,5 +88,22 @@ describe('Restaurant Dicoding Favorite Source', () => {
       expect(restaurant)
         .toStrictEqual({});
     });
+
+    it('should return an empty object if database failed to process', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'get')
+        .mockImplementation(() => {
+          throw new Error('Failed to process transaction');
+        });
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+      const restaurant = await restaurantDicodingFavorite.getRestaurant('someId');
+
+      expect(mockDatabase)
+        .toThrow('Failed to process transaction');
+
+      expect(restaurant)
+        .toStrictEqual({});
+    });
   });
 });
