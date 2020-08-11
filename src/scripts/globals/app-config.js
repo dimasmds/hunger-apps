@@ -5,6 +5,7 @@ const AppConfig = {
   DATABASE_NAME: 'hunger-apps-databases',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants',
+  OBJECT_STORE_KEY: 'id',
   imageQuality: {
     SMALL: 'small',
     MEDIUM: 'medium',
