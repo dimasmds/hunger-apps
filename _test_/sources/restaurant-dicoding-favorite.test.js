@@ -71,5 +71,22 @@ describe('Restaurant Dicoding Favorite Source', () => {
       expect(restaurant)
         .toStrictEqual(GetFavoriteRestaurantObjectMock);
     });
+
+    it('should return an empty object if id not set', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'get')
+        .mockImplementation(() => {
+          throw new Error('Please specify key to get a single data');
+        });
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+      const restaurant = await restaurantDicodingFavorite.getRestaurant();
+
+      expect(mockDatabase)
+        .toThrow('Please specify key to get a single data');
+
+      expect(restaurant)
+        .toStrictEqual({});
+    });
   });
 });
