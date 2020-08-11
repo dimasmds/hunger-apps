@@ -4,7 +4,7 @@ import {
   PostObjectFailedMock,
   PostObjectMock,
 } from './mock/network-object-mock';
-import ExceptionMessages from '../../../src/scripts/globals/ExceptionMessages';
+import ExceptionMessages from '../../../../src/scripts/globals/ExceptionMessages';
 
 const itActsAsNetworkModel = (network) => {
   describe('Get Method', () => {
