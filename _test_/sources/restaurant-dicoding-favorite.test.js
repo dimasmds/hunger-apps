@@ -4,15 +4,13 @@ import RestaurantDicodingFavorite from '../../src/scripts/sources/restaurant-dic
 
 describe('Restaurant Dicoding Favorite Source', () => {
   describe('Get All Favorite Restaurants', () => {
-    it('should return all favorite restaurants correctly', () => {
+    it('should return all favorite restaurants correctly', async () => {
       const idbDatabase = new IdbDatabase();
       const mockDatabase = jest.spyOn(idbDatabase, 'getAll')
-        .mockImplementation(() => ({
-          restaurants: GetFavoriteRestaurantsObjectMock,
-        }));
+        .mockImplementation(() => GetFavoriteRestaurantsObjectMock);
 
       const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
-      const restaurants = restaurantDicodingFavorite.getAllRestaurants();
+      const restaurants = await restaurantDicodingFavorite.getAllRestaurants();
 
       expect(mockDatabase)
         .toBeCalled();
