@@ -119,5 +119,25 @@ describe('Restaurant Dicoding Favorite Source', () => {
       expect(mockDatabase)
         .toBeCalledWith({ value: GetFavoriteRestaurantObjectMock });
     });
+
+    it('should throw error when failed to put to database', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'put')
+        .mockImplementation(() => {
+          throw new Error('Value not meet specification');
+        });
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+
+      await expect(restaurantDicodingFavorite.putRestaurant({
+        ...GetFavoriteRestaurantObjectMock,
+        id: undefined,
+      }))
+        .rejects
+        .toThrow();
+
+      expect(mockDatabase)
+        .toThrow('Value not meet specification');
+    });
   });
 });
