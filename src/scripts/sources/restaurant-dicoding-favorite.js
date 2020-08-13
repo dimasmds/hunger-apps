@@ -24,6 +24,10 @@ class RestaurantDicodingFavorite {
       return {};
     }
   }
+
+  async putRestaurant(restaurant) {
+    await this._database.put({ value: restaurant });
+  }
 }
 
 export default RestaurantDicodingFavorite;
