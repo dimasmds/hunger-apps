@@ -106,4 +106,17 @@ describe('Restaurant Dicoding Favorite Source', () => {
         .toStrictEqual({});
     });
   });
+
+  describe('Put a Favorite Restaurant', () => {
+    it('should put a favorite restaurant correctly', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'put');
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+      await restaurantDicodingFavorite.putRestaurant(GetFavoriteRestaurantObjectMock);
+
+      expect(mockDatabase)
+        .toBeCalledWith(GetFavoriteRestaurantObjectMock);
+    });
+  });
 });
