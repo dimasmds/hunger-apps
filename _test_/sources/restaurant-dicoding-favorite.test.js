@@ -116,7 +116,7 @@ describe('Restaurant Dicoding Favorite Source', () => {
       await restaurantDicodingFavorite.putRestaurant(GetFavoriteRestaurantObjectMock);
 
       expect(mockDatabase)
-        .toBeCalledWith(GetFavoriteRestaurantObjectMock);
+        .toBeCalledWith({ value: GetFavoriteRestaurantObjectMock });
     });
   });
 });
