@@ -110,7 +110,8 @@ describe('Restaurant Dicoding Favorite Source', () => {
   describe('Put a Favorite Restaurant', () => {
     it('should put a favorite restaurant correctly', async () => {
       const idbDatabase = new IdbDatabase();
-      const mockDatabase = jest.spyOn(idbDatabase, 'put');
+      const mockDatabase = jest.spyOn(idbDatabase, 'put')
+        .mockImplementation();
 
       const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
       await restaurantDicodingFavorite.putRestaurant(GetFavoriteRestaurantObjectMock);
