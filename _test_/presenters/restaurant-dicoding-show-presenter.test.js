@@ -3,19 +3,23 @@ import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import { GetRestaurantsObjectMock } from '../sources/mock/response-object-mock';
 import RestaurantDicodingShowPresenter
   from '../../src/scripts/presenters/restaurant-dicoding-show-presenter';
+import RestaurantDicodingShowView from '../../src/scripts/presenters/restaurant-dicoding-show-view';
 
 describe('Showing all dicoding restaurant', () => {
   const network = new FetchNetwork();
+  const view = new RestaurantDicodingShowView();
+
+  beforeEach(() => {
+    document.body.innerHTML = view.getTemplates();
+  });
 
   it('should show the rest of restaurants', () => new Promise((done) => {
     const restaurantDicodingApi = new RestaurantDicodingApi(network);
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
-      .mockImplementation(() => ({
-        restaurants: GetRestaurantsObjectMock,
-      }));
+      .mockImplementation(() => GetRestaurantsObjectMock);
 
     const restaurantDicodingShowPresenter = new RestaurantDicodingShowPresenter({
-      view: RestaurantDicodingShowView,
+      view,
       restaurantDicodingApi,
     });
 
