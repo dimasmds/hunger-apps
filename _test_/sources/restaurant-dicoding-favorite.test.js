@@ -140,4 +140,36 @@ describe('Restaurant Dicoding Favorite Source', () => {
         .toThrow('Value not meet specification');
     });
   });
+
+  describe('Delete favorite restaurant', () => {
+    it('should delete restaurant from database correctly', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'delete')
+        .mockImplementation();
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+
+      await restaurantDicodingFavorite.deleteRestaurant('01');
+
+      expect(mockDatabase)
+        .toBeCalledWith({ key: '01' });
+    });
+
+    it('should throw error when id not set', async () => {
+      const idbDatabase = new IdbDatabase();
+      const mockDatabase = jest.spyOn(idbDatabase, 'delete')
+        .mockImplementation(() => {
+          throw new Error('Please specify key to delete a single data');
+        });
+
+      const restaurantDicodingFavorite = new RestaurantDicodingFavorite(idbDatabase);
+
+      await expect(restaurantDicodingFavorite.deleteRestaurant())
+        .rejects
+        .toThrow();
+
+      expect(mockDatabase)
+        .toThrow('Please specify key to delete a single data');
+    });
+  });
 });
