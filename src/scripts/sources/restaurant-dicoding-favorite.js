@@ -28,6 +28,10 @@ class RestaurantDicodingFavorite {
   async putRestaurant(restaurant) {
     await this._database.put({ value: restaurant });
   }
+
+  async deleteRestaurant(id) {
+    await this._database.delete({ key: id });
+  }
 }
 
 export default RestaurantDicodingFavorite;
