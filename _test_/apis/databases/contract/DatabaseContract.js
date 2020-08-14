@@ -1,3 +1,5 @@
+import ExceptionMessages from '../../../../src/scripts/globals/ExceptionMessages';
+
 const itActsAsDatabaseModel = (database, objectStoreName) => {
   it('should put single data correctly', async () => {
     await database.put({
@@ -60,7 +62,7 @@ const itActsAsDatabaseModel = (database, objectStoreName) => {
 
     await expect(database.get({ objectStoreName }))
       .rejects
-      .toThrow('Please specify key to get a single data');
+      .toThrow(ExceptionMessages.Apis.Database.EMPTY_KEY_PARAMETER_GET_ERR);
   });
 
   it('should get all data correctly', async () => {
@@ -90,7 +92,7 @@ const itActsAsDatabaseModel = (database, objectStoreName) => {
 
     await expect(database.delete({ objectStoreName }))
       .rejects
-      .toThrow('Please specify key to delete a single data');
+      .toThrow(ExceptionMessages.Apis.Database.EMPTY_KEY_PARAMETER_DELETE_ERR);
   });
 };
 
