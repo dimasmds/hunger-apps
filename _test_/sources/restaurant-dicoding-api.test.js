@@ -29,7 +29,7 @@ describe('Restaurant Dicoding API', () => {
     it('should return empty array when request failed', async () => {
       const mockNetwork = jest.spyOn(FetchNetwork, 'get')
         .mockImplementation(() => {
-          throw new Error(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
+          throw new Error(ExceptionMessages.Apis.Network.GENERIC_REQUEST_FAILED_ERR);
         });
 
       const restaurantDicodingApi = new RestaurantDicodingApi(FetchNetwork);
@@ -59,7 +59,7 @@ describe('Restaurant Dicoding API', () => {
     it('should return empty object when request failed', async () => {
       const mockNetwork = jest.spyOn(FetchNetwork, 'get')
         .mockImplementation(() => {
-          throw new Error(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
+          throw new Error(ExceptionMessages.Apis.Network.GENERIC_REQUEST_FAILED_ERR);
         });
 
       const restaurantDicodingApi = new RestaurantDicodingApi(FetchNetwork);
@@ -92,7 +92,7 @@ describe('Restaurant Dicoding API', () => {
     it('should return empty object when request failed', async () => {
       const mockNetwork = jest.spyOn(FetchNetwork, 'post')
         .mockImplementation(() => {
-          throw new Error(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
+          throw new Error(ExceptionMessages.Apis.Network.GENERIC_REQUEST_FAILED_ERR);
         });
 
       const restaurantDicodingApi = new RestaurantDicodingApi(FetchNetwork);

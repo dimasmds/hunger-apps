@@ -25,10 +25,10 @@ const itActsAsNetworkModel = (network) => {
     it('should throw error when target url empty or white space', async () => {
       await expect(network.get())
         .rejects
-        .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
+        .toThrow(ExceptionMessages.Apis.Network.EMPTY_TARGET_URL_ERR);
       await expect(network.get({ targetUrl: '       ' }))
         .rejects
-        .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
+        .toThrow(ExceptionMessages.Apis.Network.EMPTY_TARGET_URL_ERR);
     });
 
     it('should throw error when failed request', async () => {
@@ -36,7 +36,7 @@ const itActsAsNetworkModel = (network) => {
         targetUrl: GetObjectFailedMock.targetUrl,
       }))
         .rejects
-        .toThrow(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
+        .toThrow(ExceptionMessages.Apis.Network.GENERIC_REQUEST_FAILED_ERR);
     });
   });
 
@@ -58,11 +58,11 @@ const itActsAsNetworkModel = (network) => {
     it('should throw error when target url empty or white space', async () => {
       await expect(network.post())
         .rejects
-        .toThrow(ExceptionMessages.Network.EMPTY_TARGET_URL_ERR);
+        .toThrow(ExceptionMessages.Apis.Network.EMPTY_TARGET_URL_ERR);
 
       await expect(network.post('      '))
         .rejects
-        .toThrow((ExceptionMessages.Network.EMPTY_TARGET_URL_ERR));
+        .toThrow((ExceptionMessages.Apis.Network.EMPTY_TARGET_URL_ERR));
     });
 
     it('should throw error when request failed', async () => {
@@ -70,7 +70,7 @@ const itActsAsNetworkModel = (network) => {
         targetUrl: PostObjectFailedMock.targetUrl,
       }))
         .rejects
-        .toThrow(ExceptionMessages.Network.GENERIC_REQUEST_FAILED_ERR);
+        .toThrow(ExceptionMessages.Apis.Network.GENERIC_REQUEST_FAILED_ERR);
     });
   });
 };
