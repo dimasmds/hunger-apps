@@ -3,7 +3,7 @@ import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import { GetRestaurantsObjectMock } from '../sources/mock/response-object-mock';
 import RestaurantDicodingShowPresenter
   from '../../src/scripts/presenters/restaurant-dicoding-show-presenter';
-import RestaurantDicodingShowView from '../../src/scripts/presenters/restaurant-dicoding-show-view';
+import RestaurantDicodingShowView from '../../src/scripts/presentations/view/restaurant-dicoding-show-view';
 
 describe('Showing all dicoding restaurant', () => {
   const network = new FetchNetwork();
