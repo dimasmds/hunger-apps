@@ -1,10 +1,15 @@
-import { LitElement } from 'lit-element';
 import { html } from 'lit-html';
+import style from './style.scss';
+import CommonElement from '../CommonElement';
 
-class HelloWorld extends LitElement {
+class HelloWorld extends CommonElement {
+  static get styles() {
+    return [...super.styles, style];
+  }
+
   render() {
     return html`
-      <div>Hello World!</div>
+      <p>Hello World!</p>
     `;
   }
 }
