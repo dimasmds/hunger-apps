@@ -19,6 +19,12 @@ class RestaurantDicodingShowView {
     restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));
   }
 
+  renderError(message = 'Failed to show restaurants, please try again!') {
+    const restaurantsContainer = document.querySelector('#restaurants');
+    restaurantsContainer.innerHTML = `<p class="restaurants-not-found">${message}</p>`;
+    restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));
+  }
+
   showLoading() {
     // TODO
   }
