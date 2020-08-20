@@ -3,8 +3,8 @@
 class RestaurantDicodingShowView {
   getTemplates() {
     return `
+      <div id="preloader"></div>
       <div id="restaurants" class="restaurant-list">
-        
       </div>
     `;
   }
@@ -19,6 +19,14 @@ class RestaurantDicodingShowView {
     const restaurantsContainer = document.querySelector('#restaurants');
     restaurantsContainer.innerHTML = html;
     restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));
+  }
+
+  showLoading() {
+    // TODO
+  }
+
+  hideLoading() {
+    // TODO
   }
 }
 

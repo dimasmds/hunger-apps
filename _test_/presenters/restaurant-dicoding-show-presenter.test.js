@@ -3,7 +3,8 @@ import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import { GetRestaurantsObjectMock } from '../sources/mock/response-object-mock';
 import RestaurantDicodingShowPresenter
   from '../../src/scripts/presenters/restaurant-dicoding-show-presenter';
-import RestaurantDicodingShowView from '../../src/scripts/presentations/view/restaurant-dicoding-show-view';
+import RestaurantDicodingShowView
+  from '../../src/scripts/presentations/view/restaurant-dicoding-show-view';
 
 describe('Showing all dicoding restaurant', () => {
   const network = new FetchNetwork();
@@ -18,15 +19,26 @@ describe('Showing all dicoding restaurant', () => {
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
       .mockImplementation(() => GetRestaurantsObjectMock);
 
+    const mockShowLoading = jest.spyOn(view, 'showLoading');
+    const mockHideLoading = jest.spyOn(view, 'hideLoading');
+    const mockRenderRestaurant = jest.spyOn(view, 'renderRestaurants');
+
     const restaurantDicodingShowPresenter = new RestaurantDicodingShowPresenter({
       view,
       restaurantDicodingApi,
     });
 
-    restaurantDicodingShowPresenter.showRestaurants();
-
-    expect(mockDicodingApi)
-      .toBeCalled();
+    restaurantDicodingShowPresenter.showRestaurants()
+      .then(() => {
+        expect(mockShowLoading)
+          .toBeCalled();
+        expect(mockDicodingApi)
+          .toBeCalled();
+        expect(mockRenderRestaurant)
+          .toBeCalledWith(GetRestaurantsObjectMock);
+        expect(mockHideLoading)
+          .toBeCalled();
+      });
 
     document.querySelector('#restaurants')
       .addEventListener('restaurants:updated', () => {
