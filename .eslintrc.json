@@ -7,10 +7,12 @@
     },
     "extends": [
         "airbnb-base",
-        "plugin:jest/recommended"
+        "plugin:jest/recommended",
+        "plugin:lit/recommended"
     ],
     "plugins": [
-        "jest"
+        "jest",
+        "lit"
     ],
     "parserOptions": {
         "ecmaVersion": 11,
@@ -20,6 +22,7 @@
         "import/no-extraneous-dependencies": 0,
         "no-underscore-dangle": 0,
         "jest/no-export": 0,
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "class-methods-use-this": 0
     }
 }
