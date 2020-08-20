@@ -47,4 +47,38 @@ describe('Showing all dicoding restaurant', () => {
         done();
       });
   }));
+
+  it('should show error view when there restaurants empty', () => new Promise((done) => {
+    const restaurantDicodingApi = new RestaurantDicodingApi(network);
+    const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
+      .mockImplementation(() => ({}));
+
+    const mockShowLoading = jest.spyOn(view, 'showLoading');
+    const mockHideLoading = jest.spyOn(view, 'hideLoading');
+    const mockRenderError = jest.spyOn(view, 'renderError');
+
+    const restaurantDicodingShowPresenter = new RestaurantDicodingShowPresenter({
+      view,
+      restaurantDicodingApi,
+    });
+
+    restaurantDicodingShowPresenter.showRestaurants()
+      .then(() => {
+        expect(mockShowLoading)
+          .toBeCalled();
+        expect(mockDicodingApi)
+          .toBeCalled();
+        expect(mockRenderError)
+          .toBeCalled();
+        expect(mockHideLoading)
+          .toBeCalled();
+      });
+
+    document.querySelector('#restaurants')
+      .addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.restaurants-not-found').length)
+          .toBe(1);
+        done();
+      });
+  }));
 });
