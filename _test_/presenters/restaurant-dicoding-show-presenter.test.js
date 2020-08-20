@@ -51,7 +51,7 @@ describe('Showing all dicoding restaurant', () => {
   it('should show error view when there restaurants empty', () => new Promise((done) => {
     const restaurantDicodingApi = new RestaurantDicodingApi(network);
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
-      .mockImplementation(() => ({}));
+      .mockImplementation(() => ([]));
 
     const mockShowLoading = jest.spyOn(view, 'showLoading');
     const mockHideLoading = jest.spyOn(view, 'hideLoading');
