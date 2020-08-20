@@ -48,7 +48,7 @@ describe('Showing all dicoding restaurant', () => {
       });
   }));
 
-  it('should show error view when there restaurants empty', () => new Promise((done) => {
+  it('should show error view when restaurants empty', () => new Promise((done) => {
     const restaurantDicodingApi = new RestaurantDicodingApi(network);
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
       .mockImplementation(() => ([]));
