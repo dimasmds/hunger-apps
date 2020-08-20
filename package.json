@@ -36,6 +36,8 @@
   },
   "dependencies": {
     "idb": "^5.0.4",
-    "regenerator-runtime": "^0.13.7"
+    "lit-element": "^2.4.0",
+    "regenerator-runtime": "^0.13.7",
+    "@webcomponents/webcomponentsjs": "^2.4.4"
   }
 }
