@@ -70,8 +70,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, 'src/templates/template.html'),
-      filename: 'template.html',
+      template: resolve(__dirname, 'src/templates/index.html'),
+      filename: 'index.html',
       inject: true,
       chunks: ['main', 'polyfill_head'],
     }),
