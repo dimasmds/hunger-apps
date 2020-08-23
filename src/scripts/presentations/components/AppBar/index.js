@@ -1,5 +1,6 @@
 import { html } from 'lit-html';
 import CommonElement from '../CommonElement';
+import AppConfig from '../../../globals/app-config';
 
 class AppBar extends CommonElement {
   static get properties() {
@@ -7,6 +8,12 @@ class AppBar extends CommonElement {
       _title: { type: String },
       _brand: { type: String },
     };
+  }
+
+  constructor() {
+    super();
+    this._title = AppConfig.APP_NAME;
+    this._brand = AppConfig.APP_LOGO_ICON;
   }
 
   render() {
