@@ -1,3 +1,5 @@
+import '../RestaurantItem';
+
 import { html } from 'lit-html';
 import CommonElement from '../CommonElement';
 import style from './style.scss';
@@ -26,7 +28,7 @@ class RestaurantsContainer extends CommonElement {
   renderRestaurants() {
     const restaurantsElement = this.shadowRoot.querySelector('#restaurants');
     this._restaurants.forEach((restaurant) => {
-      restaurantsElement.innerHTML += `<div>${restaurant.name}</div>`;
+      restaurantsElement.innerHTML += `<restaurant-item restaurant="${restaurant}"></restaurant-item>`;
     });
 
     this.dispatchEvent(new Event('restaurants:updated'));
