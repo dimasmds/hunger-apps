@@ -1,3 +1,6 @@
+// Inject components
+import '../../src/scripts/presentations/components/RestaurantsContainer';
+
 import RestaurantDicodingApi from '../../src/scripts/sources/restaurant-dicoding-api';
 import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import { GetRestaurantsObjectMock } from '../sources/mock/response-object-mock';
@@ -40,9 +43,9 @@ describe('Showing all dicoding restaurant', () => {
           .toBeCalled();
       });
 
-    document.querySelector('#restaurants')
+    document.querySelector('restaurants-container')
       .addEventListener('restaurants:updated', () => {
-        expect(document.querySelectorAll('.restaurant-item').length)
+        expect(document.querySelector('restaurants-container').getRestaurants().length)
           .toEqual(GetRestaurantsObjectMock.length);
         done();
       });
@@ -74,10 +77,8 @@ describe('Showing all dicoding restaurant', () => {
           .toBeCalled();
       });
 
-    document.querySelector('#restaurants')
-      .addEventListener('restaurants:updated', () => {
-        expect(document.querySelectorAll('.restaurants-not-found').length)
-          .toBe(1);
+    document.querySelector('restaurants-container')
+      .addEventListener('restaurants:not-found', () => {
         done();
       });
   }));

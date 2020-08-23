@@ -9,4 +9,9 @@ module.exports = {
       },
     ],
   ],
+  plugins: [
+    ['babel-plugin-transform-builtin-classes', {
+      globals: ['Array', 'Error', 'HTMLElement'],
+    }],
+  ],
 };

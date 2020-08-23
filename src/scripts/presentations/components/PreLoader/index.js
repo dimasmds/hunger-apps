@@ -1,17 +1,17 @@
 import { html } from 'lit-html';
-import style from './style.scss';
 import CommonElement from '../CommonElement';
+import style from './style.scss';
 
-class HelloWorld extends CommonElement {
+class PreLoader extends CommonElement {
   static get styles() {
     return [...super.styles, style];
   }
 
   render() {
     return html`
-      <p>Hello World!</p>
+      <div id="preloader"></div>
     `;
   }
 }
 
-customElements.define('hello-world', HelloWorld);
+customElements.define('pre-loader', PreLoader);
