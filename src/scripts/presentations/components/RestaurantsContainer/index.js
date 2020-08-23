@@ -28,7 +28,9 @@ class RestaurantsContainer extends CommonElement {
   renderRestaurants() {
     const restaurantsElement = this.shadowRoot.querySelector('#restaurants');
     this._restaurants.forEach((restaurant) => {
-      restaurantsElement.innerHTML += `<restaurant-item restaurant="${restaurant}"></restaurant-item>`;
+      const restaurantItemElement = document.createElement('restaurant-item');
+      restaurantItemElement.setRestaurant(restaurant);
+      restaurantsElement.appendChild(restaurantItemElement);
     });
 
     this.dispatchEvent(new Event('restaurants:updated'));

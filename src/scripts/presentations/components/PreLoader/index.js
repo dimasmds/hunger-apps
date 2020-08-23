@@ -9,7 +9,7 @@ class PreLoader extends CommonElement {
 
   render() {
     return html`
-      <div id="preloader"></div>
+      <div id="preloader">Loading...</div>
     `;
   }
 }

@@ -7,7 +7,7 @@ class RestaurantDicodingApi {
 
   async getAllRestaurants() {
     try {
-      const response = await this._network.get(Endpoint.getAllRestaurants());
+      const response = await this._network.get({ targetUrl: Endpoint.getAllRestaurants() });
       return response.restaurants;
     } catch (error) {
       // TODO: do something with error
@@ -17,7 +17,7 @@ class RestaurantDicodingApi {
 
   async getRestaurant(id) {
     try {
-      const response = await this._network.get(Endpoint.getRestaurant(id));
+      const response = await this._network.get({ targetUrl: Endpoint.getRestaurant(id) });
       return response.restaurant;
     } catch (error) {
       // TODO: do something with error
@@ -27,7 +27,7 @@ class RestaurantDicodingApi {
 
   postReview({ idRestaurant, name, review }) {
     try {
-      return this._network.post(Endpoint.postCustomerReview(), {
+      return this._network.post({ targetUrl: Endpoint.postCustomerReview() }, {
         body: {
           id: idRestaurant,
           name,

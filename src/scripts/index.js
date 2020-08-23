@@ -7,5 +7,16 @@ import './presentations/components';
 // Style Inject
 import '../styles/main.scss';
 
-// eslint-disable-next-line no-console
-console.log('hello world!');
+import App from './presentations/App';
+
+const app = new App({
+  content: document.querySelector('#mainContent'),
+});
+
+window.addEventListener('DOMContentLoaded', async () => {
+  await app.renderPage();
+});
+
+window.addEventListener('hashchange', async () => {
+  await app.renderPage();
+});

@@ -17,11 +17,13 @@ class RestaurantDicodingShowView {
   }
 
   showLoading() {
-    // TODO
+    const preLoaderElement = document.querySelector('pre-loader');
+    preLoaderElement.style.display = 'block';
   }
 
   hideLoading() {
-    // TODO
+    const preLoaderElement = document.querySelector('pre-loader');
+    preLoaderElement.style.display = 'none';
   }
 }
 
