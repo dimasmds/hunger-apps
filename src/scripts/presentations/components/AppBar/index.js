@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import CommonElement from '../CommonElement';
+import CommonElement from '../_base_/CommonElement';
 import AppConfig from '../../../globals/app-config';
 
 class AppBar extends CommonElement {
