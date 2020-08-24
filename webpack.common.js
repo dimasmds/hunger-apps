@@ -47,12 +47,18 @@ module.exports = {
     rules: [
       {
         test: /\.css|\.s([ca])ss$/,
+        exclude: resolve(__dirname, 'src/styles'),
         use: [{
           loader: 'lit-scss-loader',
           options: {
             minify: true,
           },
         }, 'extract-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css|\.s([ca])ss$/,
+        exclude: resolve(__dirname, 'src/scripts/presentations/components'),
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.js$/,
