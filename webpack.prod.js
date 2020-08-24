@@ -6,6 +6,7 @@ const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'source-map',
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -31,6 +32,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerPort: 'auto',
+    }),
   ],
 });
