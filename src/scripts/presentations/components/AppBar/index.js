@@ -1,6 +1,8 @@
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
 import AppConfig from '../../../globals/app-config';
+import style from './style.scss';
+import responsive from './responsive.scss';
 
 class AppBar extends CommonElement {
   static get properties() {
@@ -8,6 +10,10 @@ class AppBar extends CommonElement {
       _title: { type: String },
       _brand: { type: String },
     };
+  }
+
+  static get styles() {
+    return [...super.styles, style, responsive];
   }
 
   constructor() {
@@ -20,8 +26,20 @@ class AppBar extends CommonElement {
     const { _title, _brand } = this;
     return html`
     <header class="app-bar">
-        <p>${_title}</p>
-        <p>${_brand}</p>
+        <div class="app-bar__menu">
+            <button id="hamburgerButton">☰</button>
+        </div>
+        <div class="app-bar__brand">
+            <img src="${_brand}" alt="${AppConfig.APP_NAME}"/>
+            <h1>${_title}</h1>
+        </div>
+        <nav id="navigationDrawer" class="app-bar__navigation open">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Favorite</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
     </header>
     `;
   }
