@@ -1,6 +1,7 @@
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
 import AppConfig from '../../../globals/app-config';
+import style from './style.scss';
 
 class FootBar extends CommonElement {
   static get properties() {
@@ -8,6 +9,10 @@ class FootBar extends CommonElement {
       _appName: { type: String },
       _copyYears: { type: String },
     };
+  }
+
+  static get styles() {
+    return [...super.styles, style];
   }
 
   constructor() {
