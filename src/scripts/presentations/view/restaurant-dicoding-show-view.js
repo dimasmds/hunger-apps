@@ -2,6 +2,9 @@ class RestaurantDicodingShowView {
   getTemplates() {
     return `
       <section class="restaurants-section">
+        <div class="restaurants-section__header">
+            <h2>Available Restaurants</h2>
+        </div>
         <pre-loader></pre-loader>
         <restaurants-container></restaurants-container>
       </section>
