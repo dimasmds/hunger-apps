@@ -8,7 +8,9 @@ class ShowPage {
   }
 
   async render() {
-    return this._view.getTemplates();
+    return `
+    <hero-element></hero-element>
+    ${this._view.getTemplates()}`;
   }
 
   async afterRender() {

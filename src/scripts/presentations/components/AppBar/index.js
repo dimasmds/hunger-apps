@@ -37,14 +37,13 @@ class AppBar extends CommonElement {
   }
 
   render() {
-    const { _title, _brand } = this;
+    const { _title } = this;
     return html`
     <header class="app-bar">
         <div class="app-bar__menu">
             <button @click="${this.onHamburgerClick}" id="hamburgerButton">☰</button>
         </div>
         <div class="app-bar__brand">
-            <img src="${_brand}" alt="${AppConfig.APP_NAME}"/>
             <h1>${_title}</h1>
         </div>
         <nav id="navigationDrawer" class="app-bar__navigation ${this._isDrawerOpen ? 'open' : ''}">

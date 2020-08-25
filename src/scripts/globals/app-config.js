@@ -1,6 +1,7 @@
 const AppConfig = {
   APP_NAME: 'Hunger Apps',
   APP_LOGO_ICON: './favicon.png',
+  APP_HERO_IMAGE: './images/hero-image.jpg',
   BASE_API_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/',
   BASE_IMAGE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/images/',
   CACHE_NAME: 'HungerApps-V1',

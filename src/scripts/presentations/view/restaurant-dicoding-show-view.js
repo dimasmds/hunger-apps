@@ -1,8 +1,10 @@
 class RestaurantDicodingShowView {
   getTemplates() {
     return `
-      <pre-loader></pre-loader>
-      <restaurants-container></restaurants-container>
+      <section class="restaurants-section">
+        <pre-loader></pre-loader>
+        <restaurants-container></restaurants-container>
+      </section>
     `;
   }
 
