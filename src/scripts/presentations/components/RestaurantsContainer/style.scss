@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.restaurant-list {
+  margin: 32px auto 8px auto;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}

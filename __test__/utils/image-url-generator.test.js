@@ -1,43 +1,43 @@
-import generateImageUrl from '../../src/scripts/utils/image-url-generator';
+import ImageUrlGenerator from '../../src/scripts/utils/image-url-generator';
 import AppConfig from '../../src/scripts/globals/app-config';
 import ExceptionMessages from '../../src/scripts/globals/ExceptionMessages';
 
 describe('Image Url Generator', () => {
   it('should throw error when id is falsy', () => {
     expect(() => {
-      generateImageUrl();
+      ImageUrlGenerator.generate();
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
 
     expect(() => {
-      generateImageUrl(null);
+      ImageUrlGenerator.generate(null);
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
 
     expect(() => {
-      generateImageUrl(0);
+      ImageUrlGenerator.generate(0);
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
 
     expect(() => {
-      generateImageUrl(false);
+      ImageUrlGenerator.generate(false);
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_PARAMETER_ID_ERR);
   });
 
   it('should throw error when id is not string', () => {
     expect(() => {
-      generateImageUrl(1);
+      ImageUrlGenerator.generate(1);
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_TYPE_OF_PARAMETER_ID_ERR);
 
     expect(() => {
-      generateImageUrl(true);
+      ImageUrlGenerator.generate(true);
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_TYPE_OF_PARAMETER_ID_ERR);
 
     expect(() => {
-      generateImageUrl('01', true);
+      ImageUrlGenerator.generate('01', true);
     })
       .toThrowError(ExceptionMessages.Utils.ImageUrlGenerator.INVALID_TYPE_OF_PARAMETER_ID_ERR);
   });
@@ -46,26 +46,26 @@ describe('Image Url Generator', () => {
     const expectedId = '01';
     const expectedQuality = AppConfig.imageQuality.MEDIUM;
 
-    expect(typeof generateImageUrl(expectedId, expectedQuality))
+    expect(typeof ImageUrlGenerator.generate(expectedId, expectedQuality))
       .toBe('string');
-    expect(generateImageUrl(expectedId, expectedQuality))
+    expect(ImageUrlGenerator.generate(expectedId, expectedQuality))
       .toEqual(expect.stringContaining(AppConfig.BASE_IMAGE_URL));
-    expect(generateImageUrl(expectedId, expectedQuality))
+    expect(ImageUrlGenerator.generate(expectedId, expectedQuality))
       .toEqual(expect.stringContaining('01'));
-    expect(generateImageUrl(expectedId, expectedQuality))
+    expect(ImageUrlGenerator.generate(expectedId, expectedQuality))
       .toEqual(expect.stringContaining(AppConfig.imageQuality.MEDIUM));
   });
 
   it('should return medium quality image url if only one parameter passed', () => {
     const expectedId = '01';
 
-    expect(typeof generateImageUrl(expectedId))
+    expect(typeof ImageUrlGenerator.generate(expectedId))
       .toBe('string');
-    expect(generateImageUrl(expectedId))
+    expect(ImageUrlGenerator.generate(expectedId))
       .toEqual(expect.stringContaining(AppConfig.BASE_IMAGE_URL));
-    expect(generateImageUrl(expectedId))
+    expect(ImageUrlGenerator.generate(expectedId))
       .toEqual(expect.stringContaining('01'));
-    expect(generateImageUrl(expectedId))
+    expect(ImageUrlGenerator.generate(expectedId))
       .toEqual(expect.stringContaining(AppConfig.imageQuality.MEDIUM));
   });
 });

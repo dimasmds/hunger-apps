@@ -8,6 +8,7 @@ import RestaurantDicodingShowPresenter
   from '../../src/scripts/presentations/presenters/restaurant-dicoding-show-presenter';
 import RestaurantDicodingShowView
   from '../../src/scripts/presentations/view/restaurant-dicoding-show-view';
+import ImageUrlGenerator from '../../src/scripts/utils/image-url-generator';
 
 describe('Showing all dicoding restaurant', () => {
   const network = new FetchNetwork();
@@ -21,6 +22,9 @@ describe('Showing all dicoding restaurant', () => {
     const restaurantDicodingApi = new RestaurantDicodingApi(network);
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
       .mockImplementation(() => GetRestaurantsObjectMock);
+
+    const mockImageGenerator = jest.spyOn(ImageUrlGenerator, 'generate')
+      .mockImplementation(() => 'some image urls');
 
     const mockShowLoading = jest.spyOn(view, 'showLoading');
     const mockHideLoading = jest.spyOn(view, 'hideLoading');
@@ -41,11 +45,14 @@ describe('Showing all dicoding restaurant', () => {
           .toBeCalledWith(GetRestaurantsObjectMock);
         expect(mockHideLoading)
           .toBeCalled();
+        expect(mockImageGenerator)
+          .toBeCalled();
       });
 
     document.querySelector('restaurants-container')
       .addEventListener('restaurants:updated', () => {
-        expect(document.querySelector('restaurants-container').getRestaurants().length)
+        expect(document.querySelector('restaurants-container')
+          .getRestaurants().length)
           .toEqual(GetRestaurantsObjectMock.length);
         done();
       });

@@ -3,10 +3,11 @@ import '../RestaurantItem';
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
 import style from './style.scss';
+import responsive from './responsive.scss';
 
 class RestaurantsContainer extends CommonElement {
   static get styles() {
-    return [...super.styles, style];
+    return [...super.styles, style, responsive];
   }
 
   setRestaurants(restaurants) {
