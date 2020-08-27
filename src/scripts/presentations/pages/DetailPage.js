@@ -6,9 +6,11 @@ import UrlParser from '../../routes/url-parser';
 class DetailPage {
   constructor({ restaurantDetailShowView }) {
     this._view = restaurantDetailShowView;
+    this._appBarElement = document.querySelector('app-bar');
   }
 
   async render() {
+    this._clearAppBarPageActive();
     return this._view.getTemplates();
   }
 
@@ -25,6 +27,10 @@ class DetailPage {
   _getIdByUrl() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     return url.id;
+  }
+
+  _clearAppBarPageActive() {
+    this._appBarElement._pageActive = null;
   }
 }
 
