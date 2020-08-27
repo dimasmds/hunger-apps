@@ -1,6 +1,14 @@
 class RestaurantDetailShowView {
-  static getTemplates() {
+  getTemplates() {
+    return '<restaurant-detail></restaurant-detail>';
+  }
 
+  renderRestaurant() {
+    // TODO
+  }
+
+  renderError() {
+    // TODO
   }
 }
 
