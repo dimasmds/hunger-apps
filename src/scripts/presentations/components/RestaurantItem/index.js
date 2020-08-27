@@ -1,29 +1,45 @@
+import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
 import style from './style.scss';
 import AppConfig from '../../../globals/app-config';
 import ImageUrlGenerator from '../../../utils/image-url-generator';
 
 class RestaurantItem extends CommonElement {
+  static get properties() {
+    return {
+      _restaurant: { type: Object },
+      _useSkeleton: { type: Boolean },
+    };
+  }
+
   static get styles() {
     return [...super.styles, style];
   }
 
   setRestaurant(restaurant) {
     this._restaurant = restaurant;
-    this.renderRestaurant();
   }
 
   constructor() {
     super();
-    this.restaurant = {};
+    this._restaurant = {};
+    this._useSkeleton = false;
   }
 
-  renderRestaurant() {
+  render() {
+    if (this._useSkeleton) {
+      return this._renderSkeleton();
+    }
+
+    return this._renderRestaurant();
+  }
+
+  _renderRestaurant() {
     const {
       id, name, pictureId, city, description,
     } = this._restaurant;
 
-    this.shadowRoot.innerHTML = `
+    return html`
       <div class="restaurant-item">
        <div class="restaurant-item__header">
             <img class="restaurant-item__header__picture" src="${ImageUrlGenerator.generate(pictureId, AppConfig.imageQuality.SMALL)}" alt="${name}"/>
@@ -34,6 +50,18 @@ class RestaurantItem extends CommonElement {
         <div class="restaurant-item__content">
             <h3><a href="/#/detail/${id}">${name}</a></h3>
             <p>${description}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  _renderSkeleton() {
+    return html`
+      <div class="restaurant-item skeleton">
+       <div class="restaurant-item__header">
+            <img class="restaurant-item__header__picture" src="./images/placeholder.png" alt=""/>
+        </div>
+        <div class="restaurant-item__content">
         </div>
       </div>
     `;

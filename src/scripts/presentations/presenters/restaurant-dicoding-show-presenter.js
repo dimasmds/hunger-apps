@@ -5,9 +5,7 @@ class RestaurantDicodingShowPresenter {
   }
 
   async showRestaurants() {
-    this._view.showLoading();
     const restaurants = await this._restaurantDicodingApi.getAllRestaurants();
-    this._view.hideLoading();
 
     if (restaurants.length) {
       this._view.renderRestaurants(restaurants);

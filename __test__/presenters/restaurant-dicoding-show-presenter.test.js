@@ -23,12 +23,7 @@ describe('Showing all dicoding restaurant', () => {
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
       .mockImplementation(() => GetRestaurantsObjectMock);
 
-    const mockImageGenerator = jest.spyOn(ImageUrlGenerator, 'generate')
-      .mockImplementation(() => 'some image urls');
-
-    const mockShowLoading = jest.spyOn(view, 'showLoading');
-    const mockHideLoading = jest.spyOn(view, 'hideLoading');
-    const mockRenderRestaurant = jest.spyOn(view, 'renderRestaurants');
+    jest.spyOn(ImageUrlGenerator, 'generate').mockImplementation(() => 'some image urls');
 
     const restaurantDicodingShowPresenter = new RestaurantDicodingShowPresenter({
       view,
@@ -37,15 +32,7 @@ describe('Showing all dicoding restaurant', () => {
 
     restaurantDicodingShowPresenter.showRestaurants()
       .then(() => {
-        expect(mockShowLoading)
-          .toBeCalled();
         expect(mockDicodingApi)
-          .toBeCalled();
-        expect(mockRenderRestaurant)
-          .toBeCalledWith(GetRestaurantsObjectMock);
-        expect(mockHideLoading)
-          .toBeCalled();
-        expect(mockImageGenerator)
           .toBeCalled();
       });
 
@@ -63,8 +50,6 @@ describe('Showing all dicoding restaurant', () => {
     const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getAllRestaurants')
       .mockImplementation(() => ([]));
 
-    const mockShowLoading = jest.spyOn(view, 'showLoading');
-    const mockHideLoading = jest.spyOn(view, 'hideLoading');
     const mockRenderError = jest.spyOn(view, 'renderError');
 
     const restaurantDicodingShowPresenter = new RestaurantDicodingShowPresenter({
@@ -74,13 +59,9 @@ describe('Showing all dicoding restaurant', () => {
 
     restaurantDicodingShowPresenter.showRestaurants()
       .then(() => {
-        expect(mockShowLoading)
-          .toBeCalled();
         expect(mockDicodingApi)
           .toBeCalled();
         expect(mockRenderError)
-          .toBeCalled();
-        expect(mockHideLoading)
           .toBeCalled();
       });
 

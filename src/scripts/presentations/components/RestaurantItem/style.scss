@@ -50,3 +50,26 @@
     }
   }
 }
+
+
+.skeleton {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border-radius: 8px;
+
+  .restaurant-item__header {
+
+    .restaurant-item__header__picture {
+      background-color: #606e6b;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .restaurant-item__content {
+    padding: 65px 30px;
+  }
+}
