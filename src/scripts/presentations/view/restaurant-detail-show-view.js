@@ -3,8 +3,9 @@ class RestaurantDetailShowView {
     return '<restaurant-detail></restaurant-detail>';
   }
 
-  renderRestaurant() {
-    // TODO
+  showDetailRestaurant(restaurant) {
+    const restaurantDetailElement = document.querySelector('restaurant-detail');
+    restaurantDetailElement.setRestaurant(restaurant);
   }
 
   renderError() {

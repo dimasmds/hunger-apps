@@ -15,6 +15,11 @@ class RestaurantDetail extends CommonElement {
 
   setRestaurant(restaurant) {
     this._restaurant = restaurant;
+    this.dispatchEvent(new Event('restaurant:updated'));
+  }
+
+  getRestaurant() {
+    return this._restaurant;
   }
 
   constructor() {
