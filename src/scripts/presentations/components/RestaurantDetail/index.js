@@ -35,15 +35,28 @@ class RestaurantDetail extends CommonElement {
     return this._renderSkeleton();
   }
 
+  renderError(message) {
+    const restaurantDetailContainer = this.shadowRoot.querySelector('#restaurantDetail');
+    restaurantDetailContainer.innerHTML = `<p>${message}</p>`;
+
+    this.dispatchEvent(new Event('restaurant:update:failed'));
+  }
+
   _renderRestaurant() {
     const { name } = this._restaurant;
     return html`
-      <p>${name}</p>
+      <div id="restaurantDetail" class="restaurant-detail">
+         <p>${name}</p>
+      </div>
     `;
   }
 
   _renderSkeleton() {
-    return html`<p>Loading ...</p>`;
+    return html`
+      <div id="restaurantDetail" class="restaurant-detail">
+         <p>Loading ...</p>
+      </div>
+    `;
   }
 }
 

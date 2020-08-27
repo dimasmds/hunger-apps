@@ -6,7 +6,12 @@ class RestaurantDetailShowPresenter {
 
   async showRestaurantDetail(id) {
     const restaurant = await this._restaurantDicodingApi.getRestaurant(id);
-    this._view.showDetailRestaurant(restaurant);
+
+    if (restaurant.name) {
+      this._view.renderDetailRestaurant(restaurant);
+      return;
+    }
+    this._view.renderError();
   }
 }
 

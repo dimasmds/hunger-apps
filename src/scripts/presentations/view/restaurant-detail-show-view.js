@@ -3,13 +3,14 @@ class RestaurantDetailShowView {
     return '<restaurant-detail></restaurant-detail>';
   }
 
-  showDetailRestaurant(restaurant) {
+  renderDetailRestaurant(restaurant) {
     const restaurantDetailElement = document.querySelector('restaurant-detail');
     restaurantDetailElement.setRestaurant(restaurant);
   }
 
-  renderError() {
-    // TODO
+  renderError(message = 'Failed to show restaurants, please try again!') {
+    const restaurantDetailElement = document.querySelector('restaurant-detail');
+    restaurantDetailElement.renderError(message);
   }
 }
 

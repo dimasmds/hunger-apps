@@ -45,4 +45,26 @@ describe('Restaurant Detail Show Presenter', () => {
         done();
       });
   }));
+
+  it('should render error when failed to get restaurant detail', () => new Promise((done) => {
+    const restaurantDicodingApi = new RestaurantDicodingApi(network);
+    const mockDicodingApi = jest.spyOn(restaurantDicodingApi, 'getRestaurant')
+      .mockImplementation(() => ({}));
+
+    const restaurantDetailShowPresenter = new RestaurantDetailShowPresenter({
+      view,
+      restaurantDicodingApi,
+    });
+
+    restaurantDetailShowPresenter.showRestaurantDetail('01')
+      .then(() => {
+        expect(mockDicodingApi)
+          .toBeCalledWith('01');
+      });
+
+    document.querySelector('restaurant-detail')
+      .addEventListener('restaurant:update:failed', () => {
+        done();
+      });
+  }));
 });
