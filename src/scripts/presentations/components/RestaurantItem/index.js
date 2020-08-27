@@ -16,10 +16,6 @@ class RestaurantItem extends CommonElement {
     return [...super.styles, style];
   }
 
-  setRestaurant(restaurant) {
-    this._restaurant = restaurant;
-  }
-
   constructor() {
     super();
     this._restaurant = {};
