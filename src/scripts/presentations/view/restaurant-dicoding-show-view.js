@@ -19,16 +19,6 @@ class RestaurantDicodingShowView {
     const restaurantsContainer = document.querySelector('restaurants-container');
     restaurantsContainer.renderError(message);
   }
-
-  showLoading() {
-    const preLoaderElement = document.querySelector('pre-loader');
-    preLoaderElement.style.display = 'block';
-  }
-
-  hideLoading() {
-    const preLoaderElement = document.querySelector('pre-loader');
-    preLoaderElement.style.display = 'none';
-  }
 }
 
 export default RestaurantDicodingShowView;
