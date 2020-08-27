@@ -38,7 +38,7 @@ class RestaurantItem extends CommonElement {
     return html`
       <div class="restaurant-item">
        <div class="restaurant-item__header">
-            <img class="restaurant-item__header__picture" src="${ImageUrlGenerator.generate(pictureId, AppConfig.imageQuality.SMALL)}" alt="${name}"/>
+            <img class="restaurant-item__header__picture" height="200px" width="100%" loading="lazy" src="${ImageUrlGenerator.generate(pictureId, AppConfig.imageQuality.SMALL)}" alt="${name}"/>
             <div class="restaurant-item__header__location">
                 <span>${city}</span>
             </div>
