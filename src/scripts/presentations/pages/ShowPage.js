@@ -5,12 +5,15 @@ import FetchNetwork from '../../apis/networks/fetch-network';
 class ShowPage {
   constructor({ restaurantDicodingShowView }) {
     this._view = restaurantDicodingShowView;
+    this._appBarElement = document.querySelector('app-bar');
   }
 
   async render() {
+    this._synchronizeAppBar();
     return `
-    <hero-element></hero-element>
-    ${this._view.getTemplates()}`;
+        <hero-element></hero-element>
+        ${this._view.getTemplates()}
+    `;
   }
 
   async afterRender() {
@@ -20,6 +23,10 @@ class ShowPage {
       restaurantDicodingApi,
     });
     await presenter.showRestaurants();
+  }
+
+  _synchronizeAppBar() {
+    this._appBarElement._pageActive = '/home';
   }
 }
 
