@@ -25,6 +25,16 @@
       font-weight: bolder;
       background-color: white;
     }
+
+    .restaurant-item__header__rating {
+      position: absolute;
+      top: 60px;
+      padding: 6px;
+      font-size: 14px;
+      color: $primary;
+      font-weight: bolder;
+      background-color: white;
+    }
   }
 
   .restaurant-item__content {

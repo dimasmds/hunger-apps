@@ -32,7 +32,7 @@ class RestaurantItem extends CommonElement {
 
   _renderRestaurant() {
     const {
-      id, name, pictureId, city, description,
+      id, name, pictureId, city, description, rating,
     } = this._restaurant;
 
     return html`
@@ -41,6 +41,9 @@ class RestaurantItem extends CommonElement {
             <img class="restaurant-item__header__picture" height="200px" width="100%" loading="lazy" src="${ImageUrlGenerator.generate(pictureId, AppConfig.imageQuality.SMALL)}" alt="${name}"/>
             <div class="restaurant-item__header__location">
                 <span>${city}</span>
+            </div>
+            <div class="restaurant-item__header__rating">
+                <span>⭐ ${rating}</span>
             </div>
         </div>
         <div class="restaurant-item__content">
