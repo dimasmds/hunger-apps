@@ -1,6 +1,8 @@
 // Inject Component
 import '../../src/scripts/presentations/components/RestaurantDetail';
 
+import 'fake-indexeddb/auto';
+import { beforeEach, describe } from '@jest/globals';
 import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import RestaurantDetailShowView
   from '../../src/scripts/presentations/view/restaurant-detail-show-view';

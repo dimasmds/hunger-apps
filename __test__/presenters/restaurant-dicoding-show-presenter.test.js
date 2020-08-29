@@ -1,6 +1,9 @@
 // Inject components
 import '../../src/scripts/presentations/components/RestaurantsContainer';
 
+import {
+  beforeEach, describe, it, jest,
+} from '@jest/globals';
 import RestaurantDicodingApi from '../../src/scripts/sources/restaurant-dicoding-api';
 import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import { GetRestaurantsObjectMock } from '../sources/mock/response-object-mock';

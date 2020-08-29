@@ -13,6 +13,8 @@ const GetRestaurantObjectMock = {
   id: '01',
   name: 'Lorem ipsum dolor sit amet',
   description: 'This is some description',
+  categories: [],
+  customerReviews: [],
 };
 
 const PostReviewResponseObjectMock = {

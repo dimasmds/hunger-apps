@@ -1,3 +1,4 @@
+import { describe, it } from '@jest/globals';
 import FetchNetwork from '../../src/scripts/apis/networks/fetch-network';
 import RestaurantDicodingApi from '../../src/scripts/sources/restaurant-dicoding-api';
 import {

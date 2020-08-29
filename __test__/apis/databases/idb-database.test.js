@@ -1,4 +1,5 @@
 import 'fake-indexeddb/auto';
+import { describe } from '@jest/globals';
 import IdbDatabase from '../../../src/scripts/apis/databases/idb-database';
 import itActsAsDatabaseModel from './contract/DatabaseContract';
 

@@ -1,3 +1,4 @@
+import { it } from '@jest/globals';
 import ExceptionMessages from '../../../../src/scripts/globals/ExceptionMessages';
 
 const itActsAsDatabaseModel = (database, objectStoreName) => {
