@@ -18,7 +18,7 @@ class RestaurantDicodingFavorite {
 
   async getRestaurant(id) {
     try {
-      return await this._database.get(id);
+      return await this._database.get({ key: id });
     } catch (error) {
       // do something with error
       return {};
