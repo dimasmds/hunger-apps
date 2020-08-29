@@ -1,0 +1,23 @@
+@media screen and (min-width: 650px) {
+  .restaurant-detail {
+
+    .restaurant-detail__header {
+
+      .restaurant-detail__header__image {
+        height: 400px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .restaurant-detail {
+
+    .restaurant-detail__header {
+
+      .restaurant-detail__header__image {
+        height: 600px;
+      }
+    }
+  }
+}
