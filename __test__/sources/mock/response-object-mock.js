@@ -15,6 +15,7 @@ const GetRestaurantObjectMock = {
   description: 'This is some description',
   categories: [],
   customerReviews: [],
+  menus: { foods: [], drinks: [] },
 };
 
 const PostReviewResponseObjectMock = {
