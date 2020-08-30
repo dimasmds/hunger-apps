@@ -81,6 +81,27 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .restaurant-detail__review {
+    width: 90%;
+    max-width: 1000px;
+    margin: 32px auto 16px auto;
+
+    .restaurant-detail__review__header {
+      display: flex;
+      justify-content: center;
+
+      .restaurant-detail__review__header__title {
+        margin: 0 auto 16px auto;
+        display: inline-block;
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 28px;
+        background-color: $primary;
+        color: white;
+        padding: 8px 12px;
+      }
+    }
+  }
 }
 
 .icon-small {

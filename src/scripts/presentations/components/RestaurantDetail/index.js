@@ -1,5 +1,6 @@
 import '../FavoriteButton';
 import '../MenuContainer';
+import '../ReviewContainer';
 
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
@@ -96,6 +97,14 @@ class RestaurantDetail extends CommonElement {
             <div class="restaurant-detail__menu__content">
                 <menu-container _title="Foods" _menus="${JSON.stringify(foods)}"></menu-container>
                 <menu-container _title="Drinks" _menus="${JSON.stringify(drinks)}"></menu-container>
+            </div>
+        </div>
+        <div class="restaurant-detail__review">
+            <div class="restaurant-detail__review__header">
+                <h3 class="restaurant-detail__review__header__title">Consumer Reviews</h3>
+            </div>
+            <div class="restaurant-detail__review__content">
+                <review-container _reviews="${JSON.stringify(consumerReviews)}"></review-container>
             </div>
         </div>
       </div>
