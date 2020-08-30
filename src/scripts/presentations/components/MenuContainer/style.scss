@@ -1,0 +1,25 @@
+@import "../../../../styles/utilities/variables";
+
+.menu-container {
+  font-family: 'Maven Pro', sans-serif;
+
+  .menu-container__title {
+    font-size: 18px;
+    color: $primary;
+    padding: 8px 0;
+  }
+
+  .menu-list {
+    margin-bottom: 16px;
+
+    .menu-item {
+      list-style: none;
+      padding: 5px 0;
+      border-top: 1px solid $primary;
+    }
+
+    .menu-item:last-of-type {
+      border-bottom: 1px solid $primary;
+    }
+  }
+}

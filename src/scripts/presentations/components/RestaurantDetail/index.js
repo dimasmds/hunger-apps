@@ -89,9 +89,13 @@ class RestaurantDetail extends CommonElement {
   })}"></favorite-button>
         </div>
         <div class="restaurant-detail__menu">
-            <h1>Menu</h1>
-            <menu-container _title="foods" _menus="${JSON.stringify(foods)}"></menu-container>
-            <menu-container _title="drinks" _menus="${JSON.stringify(drinks)}"></menu-container>
+            <div class="restaurant-detail__menu__header">
+                <h3 class="restaurant-detail__menu__header__title">Menu</h3>
+            </div>
+            <div class="restaurant-detail__menu__content">
+                <menu-container _title="Foods" _menus="${JSON.stringify(foods)}"></menu-container>
+                <menu-container _title="Drinks" _menus="${JSON.stringify(drinks)}"></menu-container>
+            </div>
         </div>
       </div>
     `;
