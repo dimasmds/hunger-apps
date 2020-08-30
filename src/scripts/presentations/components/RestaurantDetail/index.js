@@ -1,4 +1,5 @@
 import '../FavoriteButton';
+import '../MenuContainer';
 
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
@@ -51,6 +52,9 @@ class RestaurantDetail extends CommonElement {
     const {
       id, name, pictureId, address, categories, city, consumerReviews, description, menus, rating,
     } = this._restaurant;
+
+    const { foods, drinks } = menus;
+
     return html`
       <div id="restaurantDetail" class="restaurant-detail">
         <div class="restaurant-detail__header">
@@ -83,6 +87,11 @@ class RestaurantDetail extends CommonElement {
                 _restaurant="${JSON.stringify({
     id, name, pictureId, city, description, rating,
   })}"></favorite-button>
+        </div>
+        <div class="restaurant-detail__menu">
+            <h1>Menu</h1>
+            <menu-container _title="foods" _menus="${JSON.stringify(foods)}"></menu-container>
+            <menu-container _title="drinks" _menus="${JSON.stringify(drinks)}"></menu-container>
         </div>
       </div>
     `;
