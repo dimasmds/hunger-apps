@@ -55,6 +55,10 @@ class RestaurantDetail extends CommonElement {
 
     const { foods, drinks } = menus;
 
+    const favorite = {
+      id, name, pictureId, city, description, rating,
+    };
+
     return html`
       <div id="restaurantDetail" class="restaurant-detail">
         <div class="restaurant-detail__header">
@@ -83,10 +87,7 @@ class RestaurantDetail extends CommonElement {
                 </span>
             </div>
             <p>${description}</p>
-            <favorite-button 
-                _restaurant="${JSON.stringify({
-    id, name, pictureId, city, description, rating,
-  })}"></favorite-button>
+            <favorite-button _restaurant="${JSON.stringify(favorite)}"></favorite-button>
         </div>
         <div class="restaurant-detail__menu">
             <div class="restaurant-detail__menu__header">
