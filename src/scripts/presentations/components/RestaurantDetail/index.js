@@ -1,6 +1,7 @@
 import '../FavoriteButton';
 import '../MenuContainer';
 import '../ReviewContainer';
+import '../ReviewInput';
 
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
@@ -34,6 +35,10 @@ class RestaurantDetail extends CommonElement {
     this._restaurant = null;
   }
 
+  _onReviewSubmit(review) {
+    console.log(review);
+  }
+
   render() {
     if (this._restaurant) {
       return this._renderRestaurant();
@@ -57,7 +62,12 @@ class RestaurantDetail extends CommonElement {
     const { foods, drinks } = menus;
 
     const favorite = {
-      id, name, pictureId, city, description, rating,
+      id,
+      name,
+      pictureId,
+      city,
+      description,
+      rating,
     };
 
     return html`
@@ -84,7 +94,8 @@ class RestaurantDetail extends CommonElement {
                 </span>
                 <span class="restaurant-detail__content__detail__item">
                     <img class="icon-small" alt="categories" src="./images/icons/categories.svg">
-                    ${categories.map((category) => `${category.name}`).join(', ')}  
+                    ${categories.map((category) => `${category.name}`)
+    .join(', ')}  
                 </span>
             </div>
             <p>${description}</p>
@@ -106,6 +117,9 @@ class RestaurantDetail extends CommonElement {
             <div class="restaurant-detail__review__content">
                 <review-container _reviews="${JSON.stringify(consumerReviews)}"></review-container>
             </div>
+        </div>
+        <div class="restaurant-detail__review-input">
+            <review-input ._onReviewSubmit=${this._onReviewSubmit}></review-input>
         </div>
       </div>
     `;
