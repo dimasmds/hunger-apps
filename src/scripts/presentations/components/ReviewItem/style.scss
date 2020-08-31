@@ -1,0 +1,22 @@
+.review-item {
+  font-family: 'Maven Pro', sans-serif;
+  padding: 16px;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px 0;
+  display: flex;
+  border-radius: 5px;
+
+  .review-item__avatar {
+    margin-right: 12px;
+  }
+
+  .review-item__content {
+    .review-item__date {
+      font-size: 12px;
+    }
+
+    .review-item__review {
+      margin-top: 4px;
+    }
+  }
+}
