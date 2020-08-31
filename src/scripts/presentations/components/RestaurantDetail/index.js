@@ -35,7 +35,7 @@ class RestaurantDetail extends CommonElement {
     this._restaurant = null;
   }
 
-  _onReviewSubmit(review) {
+  async _onReviewSubmit(review) {
     console.log(review);
   }
 
