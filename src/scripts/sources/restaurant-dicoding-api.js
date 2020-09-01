@@ -25,13 +25,16 @@ class RestaurantDicodingApi {
     }
   }
 
-  postReview({ idRestaurant, name, review }) {
+  async postReview({ id, name, review }) {
     try {
-      return this._network.post({ targetUrl: Endpoint.postCustomerReview() }, {
-        body: {
-          id: idRestaurant,
-          name,
-          review,
+      return await this._network.post({
+        targetUrl: Endpoint.postCustomerReview(),
+        options: {
+          body: {
+            id,
+            name,
+            review,
+          },
         },
       });
     } catch (error) {

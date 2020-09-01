@@ -9,6 +9,9 @@ import style from './style.scss';
 import responsive from './responsive.scss';
 import ImageUrlGenerator from '../../../utils/image-url-generator';
 import AppConfig from '../../../globals/app-config';
+import CustomerReviewPresenter from '../../presenters/customer-review-presenter';
+import RestaurantDicodingApi from '../../../sources/restaurant-dicoding-api';
+import FetchNetwork from '../../../apis/networks/fetch-network';
 
 class RestaurantDetail extends CommonElement {
   static get properties() {
@@ -33,10 +36,34 @@ class RestaurantDetail extends CommonElement {
   constructor() {
     super();
     this._restaurant = null;
+    this._onReviewSubmit = this._onReviewSubmit.bind(this);
   }
 
   async _onReviewSubmit(review) {
-    console.log(review);
+    const customerReviewPresenter = new CustomerReviewPresenter({
+      view: {
+        reviewPosted: (response) => {
+          this._reviewPosted(response);
+        },
+        renderError: () => {
+          this._renderReviewError();
+        },
+      },
+      restaurantDicodingApi: new RestaurantDicodingApi(FetchNetwork),
+    });
+
+    await customerReviewPresenter.postReview(review);
+  }
+
+  _renderReviewError() {
+    // TODO with message
+  }
+
+  _reviewPosted(response) {
+    this._restaurant = {
+      ...this._restaurant,
+      consumerReviews: response,
+    };
   }
 
   render() {
