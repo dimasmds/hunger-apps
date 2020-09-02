@@ -16,6 +16,14 @@
       }
     }
   }
+
+  .restaurant-detail.skeleton {
+    .restaurant-detail__header {
+      background-color: #aaaaaa;
+      width: 100%;
+      height: 400px;
+    }
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -26,6 +34,14 @@
       .restaurant-detail__header__image {
         height: 600px;
       }
+    }
+  }
+
+  .restaurant-detail.skeleton {
+    .restaurant-detail__header {
+      background-color: #aaaaaa;
+      width: 100%;
+      height: 600px;
     }
   }
 }

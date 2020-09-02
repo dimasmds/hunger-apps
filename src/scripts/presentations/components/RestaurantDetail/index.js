@@ -154,8 +154,17 @@ class RestaurantDetail extends CommonElement {
 
   _renderSkeleton() {
     return html`
-      <div id="restaurantDetail" class="restaurant-detail">
-         <p>Loading ...</p>
+      <div id="restaurantDetail" class="restaurant-detail skeleton">
+         <div class="restaurant-detail__header">
+           
+        </div>
+        <div class="restaurant-detail__content">
+            <h2 class="restaurant-detail__content__title"> </h2>
+            <div class="restaurant-detail__content__detail">
+                
+            </div>
+            <p></p>
+        </div>
       </div>
     `;
   }

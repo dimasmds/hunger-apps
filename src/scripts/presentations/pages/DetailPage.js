@@ -15,6 +15,10 @@ class DetailPage {
   }
 
   async afterRender() {
+    // fix fist view scroll on mobile
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
     const restaurantDicodingApi = new RestaurantDicodingApi(FetchNetwork);
     const presenter = new RestaurantDetailShowPresenter({
       view: this._view,
