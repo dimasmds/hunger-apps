@@ -11,7 +11,6 @@ const ExceptionMessages = {
       GENERIC_GET_WITH_ERR: (error) => `Failed to get single data, see: ${error}`,
       GENERIC_GET_ALL_WITH_ERR: (error) => `Failed to get all data, see: ${error}`,
       GENERIC_DELETE_WITH_ERR: (error) => `Failed to delete single data, see: ${error}`,
-
     },
   },
   Utils: {
