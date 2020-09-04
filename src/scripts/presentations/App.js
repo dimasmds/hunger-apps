@@ -9,6 +9,12 @@ class App {
 
   _initialAppShell() {
     // TODO
+    const appBarElement = document.querySelector('app-bar');
+    const mainContent = document.querySelector('#mainContent');
+
+    mainContent.addEventListener('click', () => {
+      appBarElement._isDrawerOpen = false;
+    });
   }
 
   async renderPage() {
