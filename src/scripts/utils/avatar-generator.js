@@ -5,7 +5,7 @@ class AvatarGenerator {
   }
 
   static generateDefault() {
-    return './images/avatars/default.webp';
+    return './images/avatars/not-found.webp';
   }
 }
 

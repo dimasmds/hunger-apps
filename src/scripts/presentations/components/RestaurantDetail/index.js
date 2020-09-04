@@ -2,6 +2,7 @@ import '../FavoriteButton';
 import '../MenuContainer';
 import '../ReviewContainer';
 import '../ReviewInput';
+import '../ErrorElement';
 
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
@@ -76,7 +77,7 @@ class RestaurantDetail extends CommonElement {
 
   renderError(message) {
     const restaurantDetailContainer = this.shadowRoot.querySelector('#restaurantDetail');
-    restaurantDetailContainer.innerHTML = `<p>${message}</p>`;
+    restaurantDetailContainer.innerHTML = `<error-element _message="${message}"></error-element>`;
 
     this.dispatchEvent(new Event('restaurant:update:failed'));
   }

@@ -1,0 +1,18 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  p {
+    text-align: center;
+    padding: 12px;
+    font-size: 24px;
+    font-family: 'Maven Pro', sans-serif;
+  }
+}

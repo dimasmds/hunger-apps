@@ -49,7 +49,8 @@ class RestaurantsContainer extends CommonElement {
 
   renderError(message) {
     const restaurantsElement = this.shadowRoot.querySelector('#restaurants');
-    restaurantsElement.innerHTML = `<p class="restaurants-not-found">${message}</p>`;
+    restaurantsElement.classList.add('error');
+    restaurantsElement.innerHTML = `<error-element _message="${message}"></error-element>`;
 
     this.dispatchEvent(new Event('restaurants:not-found'));
   }
