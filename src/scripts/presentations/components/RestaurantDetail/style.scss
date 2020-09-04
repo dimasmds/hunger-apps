@@ -141,3 +141,10 @@
   width: 15px;
   height: 15px;
 }
+
+.restaurant-detail.error {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

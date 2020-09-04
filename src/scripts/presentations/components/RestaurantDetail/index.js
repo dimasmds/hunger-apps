@@ -77,6 +77,8 @@ class RestaurantDetail extends CommonElement {
 
   renderError(message) {
     const restaurantDetailContainer = this.shadowRoot.querySelector('#restaurantDetail');
+    restaurantDetailContainer.classList.remove('skeleton');
+    restaurantDetailContainer.classList.add('error');
     restaurantDetailContainer.innerHTML = `<error-element _message="${message}"></error-element>`;
 
     this.dispatchEvent(new Event('restaurant:update:failed'));
