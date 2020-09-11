@@ -3,6 +3,7 @@ import CommonElement from '../_base_/CommonElement';
 import style from './style.scss';
 import AppConfig from '../../../globals/app-config';
 
+// noinspection JSUnresolvedFunction
 class HeroElement extends CommonElement {
   static get properties() {
     return {
@@ -18,9 +19,10 @@ class HeroElement extends CommonElement {
 
   constructor() {
     super();
-    this._heroImage = AppConfig.APP_HERO_IMAGE;
+    this._heroImage = document.body.clientWidth < 800 ? AppConfig.HERO_IMAGE_SMALL
+      : AppConfig.HERO_IMAGE_LARGE;
     this._content = 'Find Your Favorite Restaurant Here!';
-    this._subContent = "Let's enjoy every bite of foods here!";
+    this._subContent = 'Let\'s enjoy every bite of foods here!';
   }
 
   render() {
