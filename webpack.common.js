@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInjector = require('html-webpack-injector');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 const webcomponentsjs = './node_modules/@webcomponents/webcomponentsjs';
 
@@ -88,6 +89,20 @@ module.exports = {
         {
           from: resolve(__dirname, 'src/public/'),
           to: resolve(__dirname, 'dist/'),
+        },
+      ],
+    }),
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/'),
+          handler: 'StaleWhileRevalidate',
+        },
+        {
+          urlPattern: new RegExp('https://fonts.gstatic.com/'),
+          handler: 'StaleWhileRevalidate',
         },
       ],
     }),
