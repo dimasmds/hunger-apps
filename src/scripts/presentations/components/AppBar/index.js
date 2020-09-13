@@ -65,7 +65,9 @@ class AppBar extends CommonElement {
                 <li>
                     <a
                       @click="${this.onNavigateClick}"
-                      href="#/about"
+                      href="https://www.linkedin.com/in/dimasmds/"
+                      target="__blank"
+                      rel="noreferrer"
                       class="${this._pageActive === '/about' ? 'active' : ''}">
                       About Us</a>
                 </li>
