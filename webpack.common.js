@@ -97,7 +97,15 @@ module.exports = {
       skipWaiting: true,
       runtimeCaching: [
         {
-          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/'),
+          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/list'),
+          handler: 'StaleWhileRevalidate',
+        },
+        {
+          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/detail/'),
+          handler: 'NetworkFirst',
+        },
+        {
+          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/images/'),
           handler: 'StaleWhileRevalidate',
         },
         {
