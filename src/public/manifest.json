@@ -5,7 +5,7 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#d84315",
+  "theme_color": "#606e6b",
   "icons": [
     {
       "src": "images/icons/manifest/icon-72x72.png",
