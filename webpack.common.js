@@ -2,7 +2,6 @@ const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInjector = require('html-webpack-injector');
-const { GenerateSW } = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 
@@ -100,28 +99,6 @@ module.exports = {
           quality: 50,
           progressive: true,
         }),
-      ],
-    }),
-    new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/list'),
-          handler: 'StaleWhileRevalidate',
-        },
-        {
-          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/detail/'),
-          handler: 'NetworkFirst',
-        },
-        {
-          urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/images/'),
-          handler: 'StaleWhileRevalidate',
-        },
-        {
-          urlPattern: new RegExp('https://fonts.gstatic.com/'),
-          handler: 'StaleWhileRevalidate',
-        },
       ],
     }),
   ],
