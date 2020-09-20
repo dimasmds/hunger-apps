@@ -12,6 +12,7 @@ import registerSW from './utils/register-sw';
 
 const app = new App({
   content: document.querySelector('#mainContent'),
+  skipLink: document.querySelector('#skipLink'),
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
