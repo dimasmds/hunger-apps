@@ -1,5 +1,6 @@
 class RestaurantDetailShowView {
   getTemplates() {
+    import('../components/RestaurantDetail');
     return '<restaurant-detail></restaurant-detail>';
   }
 

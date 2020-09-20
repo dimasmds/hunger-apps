@@ -1,6 +1,4 @@
 /* eslint-disable prefer-spread */
-import '../RestaurantItem';
-
 import { html } from 'lit-html';
 import CommonElement from '../_base_/CommonElement';
 import style from './style.scss';
@@ -33,6 +31,7 @@ class RestaurantsContainer extends CommonElement {
 
   render() {
     if (this._restaurants.length) {
+      import('../RestaurantItem');
       return html`
         <div id="restaurants" class="restaurant-list">
             ${this._restaurants.map((restaurant) => html`<restaurant-item _restaurant=${JSON.stringify(restaurant)}></restaurant-item>`)}
@@ -50,6 +49,7 @@ class RestaurantsContainer extends CommonElement {
   renderError(message) {
     const restaurantsElement = this.shadowRoot.querySelector('#restaurants');
     restaurantsElement.classList.add('error');
+    import('../ErrorElement');
     restaurantsElement.innerHTML = `<error-element _message="${message}"></error-element>`;
 
     this.dispatchEvent(new Event('restaurants:not-found'));

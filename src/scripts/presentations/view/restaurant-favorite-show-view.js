@@ -1,5 +1,6 @@
 class RestaurantFavoriteShowView {
   getTemplates() {
+    import('../components/RestaurantsContainer');
     return `
       <section class="restaurants-section">
         <div class="restaurants-section__header">
