@@ -153,7 +153,7 @@ const GetRestaurantObjectMock = {
     drinks: [{ name: 'Coklat panas' }, { name: 'Minuman soda' }, { name: 'Jus alpukat' }, { name: 'Jus mangga' }, { name: 'Jus apel' }, { name: 'Es kopi' }, { name: 'Sirup' }, { name: 'Es krim' }, { name: 'Teh manis' }, { name: 'Jus tomat' }, { name: 'Kopi espresso' }, { name: 'Air' }],
   },
   rating: 4.8,
-  consumerReviews: [{
+  customerReviews: [{
     name: 'Arif',
     review: 'Harganya murah sekali!',
     date: '13 Juli 2019',

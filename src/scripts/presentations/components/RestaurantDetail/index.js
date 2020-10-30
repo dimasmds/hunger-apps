@@ -62,7 +62,7 @@ class RestaurantDetail extends CommonElement {
   _reviewPosted(response) {
     this._restaurant = {
       ...this._restaurant,
-      consumerReviews: response,
+      customerReviews: response,
     };
   }
 
@@ -86,7 +86,7 @@ class RestaurantDetail extends CommonElement {
 
   _renderRestaurant() {
     const {
-      id, name, pictureId, address, categories, city, consumerReviews, description, menus, rating,
+      id, name, pictureId, address, categories, city, customerReviews, description, menus, rating,
     } = this._restaurant;
 
     const { foods, drinks } = menus;
@@ -145,7 +145,7 @@ class RestaurantDetail extends CommonElement {
                 <h3 class="restaurant-detail__review__header__title">Consumer Reviews</h3>
             </div>
             <div class="restaurant-detail__review__content">
-                <review-container _reviews="${JSON.stringify(consumerReviews)}"></review-container>
+                <review-container _reviews="${JSON.stringify(customerReviews)}"></review-container>
             </div>
         </div>
         <div class="restaurant-detail__review-input">
